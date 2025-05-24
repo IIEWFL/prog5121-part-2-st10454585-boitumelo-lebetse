@@ -1,12 +1,15 @@
-package PROG_1;
+package prog_part_2;
+
 /*
- * This code was developed with assistance from ChatGPT,
+ * GROK AI was used to help me fix complex bug/errors in my code,
  * and references were made to the following online resources:
  * - W3Schools Java Tutorial: https://www.w3schools.com/java
  * - freeCodeCamp - Java Unit Testing: https://www.freecodecamp.org/news/java-unit-testing/
+ * - GeeksforGeeks Java Programming: https://www.geeksforgeeks.org/java/
+ * - Oracle Java Documentation: https://docs.oracle.com/javase/tutorial/
  */
 
-//strings
+
 public class Login {
 
     private String registeredUsername;
@@ -19,14 +22,14 @@ public class Login {
     }
 
     public boolean checkPasswordComplexity(String password) {
-        return password.length() >= 8
-                && password.matches(".*[A-Z].*")
-                && password.matches(".*[0-9].*")
-                && password.matches(".*[!@#$%^&*()_+=<>?/{}|~`\\[\\]-].*");
+        return password.length() >= 8 &&
+               password.matches(".*[A-Z].*") &&
+               password.matches(".*[0-9].*") &&
+               password.matches(".*[!@#$%^&*()_+=<>?/{}|~`\\[\\]-].*");
     }
 
     public boolean checkCellPhoneNumber(String phone) {
-        return phone.startsWith("+27") && phone.substring(3).matches("\\d{10}");
+        return phone.startsWith("+27") && phone.length() <= 12 && phone.substring(3).matches("\\d{9,10}");
     }
 
     public String registerUser(String username, String password, String firstName, String lastName) {
@@ -55,4 +58,3 @@ public class Login {
         }
     }
 }
-
